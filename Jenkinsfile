@@ -16,10 +16,10 @@ pipeline {
                         bat 'git fetch origin'
                         
                         // Check out the correct branch (e.g., 'main')
-                        bat 'git checkout main'
+                        bat 'git checkout master'
                         
                         // Pull the latest code from the branch
-                        bat 'git pull origin main'
+                        bat 'git pull origin master'
                     }
                 }
             }
