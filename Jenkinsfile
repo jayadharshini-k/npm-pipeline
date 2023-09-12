@@ -1,5 +1,3 @@
-// Jenkinsfile
-
 pipeline {
     agent any
 
@@ -8,21 +6,23 @@ pipeline {
             steps {
                 script {
                     dir('D:\\workspace6') {
-                        // Check if the Git repository is already initialized
+                        // Initialize Git repository if not already initialized
                         if (!fileExists(".git")) {
                             bat 'git init'
                             bat 'git remote add origin https://github.com/jayadharshini-k/npm-pipeline.git'
-                        } else {
-                            echo "Git repository already initialized."
                         }
-                        // Always perform git pull to get the latest code
+                        
+                        // Always fetch the latest code from the remote repository
+                        bat 'git fetch origin'
+                        
+                        // Check out the correct branch (e.g., 'main')
+                        bat 'git checkout main'
+                        
+                        // Pull the latest code from the branch
                         bat 'git pull origin main'
                     }
-
                 }
-
             }
-
         }
 
         stage('Build') {
