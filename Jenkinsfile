@@ -5,7 +5,7 @@ pipeline {
         stage('Pulling latest code') {
             steps {
                 script {
-                    dir('D:\\workspace6') {
+                    dir('D:\\npm-pipeline') {
                         // Initialize Git repository if not already initialized
                         if (!fileExists(".git")) {
                             bat 'git init'
