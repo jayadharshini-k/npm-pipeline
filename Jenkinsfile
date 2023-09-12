@@ -1,7 +1,5 @@
 pipeline {
-    agent{
-        label 'windows'
-    }
+    agent any
 
     stages {
         stage('Pulling latest code') {
@@ -31,8 +29,8 @@ pipeline {
             steps {
                 // Build the React app
                 script {
-                    sh 'npm install'
-                    sh 'npm run build'
+                    bat 'npm install'
+                    bat 'npm run build'
                 }
             }
         }
